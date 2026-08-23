@@ -28,7 +28,7 @@ Lần 3: f, 63f42194, f
 
 Ta có thể thấy: Ngoài những dãy số hexa ở giữa mà chúng ta đã nói ở buổi hôm qua thì ở cột đầu tiên, giá trị của *p không đổi và bằng giá trị của biến i. 
 
-Khi đó, câu lệnh `printf("%x", *p);` in ra giá trị của biến i, không phải địa chỉ của i. 
+Khi đó, câu lệnh `printf("%x", *p);` in ra giá trị của biến i, không phải địa chỉ của i.
 
 Ngoài ra, khi viết lại chương trình trên như sau:
 ```
@@ -48,7 +48,7 @@ Kết quả:
 ```
 14, f9a5f764, 14
 ```
-Ta có thể thấy: Khi i thay đổi thì *p cũng sẽ thay đổi
+Ta có thể thấy: Khi i thay đổi thì *p cũng sẽ thay đổi. Nên ta có thể kết luận rằng *p là cách truy cập giá trị của i thông qua con trỏ p
 #### Lưu ý
 * Không nên cố gắng dùng phép lấy giá trị cho biến con trỏ chưa được khởi tạo giá trị.
 Nếu biến con trỏ chưa có giá trị khởi tạo, việc sử dụng giá trị của p có thể gây ra các kết quả không mong muốn.
