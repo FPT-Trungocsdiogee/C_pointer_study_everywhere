@@ -1,7 +1,7 @@
 # Pointer notes - day 7
-Những ngày qua, chúng ta đã tìm hiểu về khái niệm con trỏ và ứng dụng của con trỏ trong việc viết hàm. Từ hôm nay, chúng ta sẽ tìm hiểu một ứng dụng khác của con trỏ trong lập trình C. Đó là mối liên hệ giữa con trỏ và xâu(array).
-### Các phép toán liên quan đến con trỏ và xâu
-Chúng ta đã biết rằng con trỏ có thể trỏ tới các phần tử của xâu. Ta có thể xem chương trình sau:
+Những ngày qua, chúng ta đã tìm hiểu về khái niệm con trỏ và ứng dụng của con trỏ trong việc viết hàm. Từ hôm nay, chúng ta sẽ tìm hiểu một ứng dụng khác của con trỏ trong lập trình C. Đó là mối liên hệ giữa con trỏ và mảng(array).
+### Các phép toán liên quan đến con trỏ và mảng
+Chúng ta đã biết rằng con trỏ có thể trỏ tới các phần tử của mảng. Ta có thể xem chương trình sau:
 ```c
 #include <stdio.h>
 int main(void)
@@ -16,14 +16,14 @@ int main(void)
 ```
 Ở chương trình này, địa chỉ của a[0] được gán vào biến con trỏ p. Khi đó ta có thể truy cập a[0] thông qua p. Sau đó các câu lệnh `printf` in ra ngoài màn hình giá trị trước và sau khi gán giá trị cho a[0]. Kết quả như hình dưới:
 ![Kết quả chạy](day7_codes/result_pointer_array.png)
-Ta có thể thấy chương trình được chạy 3 lần. Trước khi gán, một giá trị ngẫu nhiên được in ra và sau khi gán, giá trị mới đã được in chính xác và không thay đổi. Khi đó ta có thể gán địa chỉ của phần tử khác của a cho p và thực hiện tương tự chương trình trên. Tuy nhiên, nếu bài toán yêu cầu truy cập nhiều phần tử khác cùng một lúc của xâu, ta có thể thực hiện các phép toán với con trỏ được trỏ đến xâu.
+Ta có thể thấy chương trình được chạy 3 lần. Trước khi gán, một giá trị ngẫu nhiên được in ra và sau khi gán, giá trị mới đã được in chính xác và không thay đổi. Khi đó ta có thể gán địa chỉ của phần tử khác của a cho p và thực hiện tương tự chương trình trên. Tuy nhiên, nếu bài toán yêu cầu truy cập nhiều phần tử khác cùng một lúc của mảng, ta có thể thực hiện các phép toán với con trỏ được trỏ đến mảng.
 C chỉ hỗ trợ **3 phép toán với con trỏ** sau:
 * Cộng 1 số nguyên vào một con trỏ
 * Trừ 1 số nguyên ra khỏi một con trỏ
 * Trừ con trỏ này khỏi con trỏ khác
-Các mục con dưới đây giúp chúng ta tìm hiểu về các phép toán này. Để dễ diễn đạt, xâu a[n] và hai biến con trỏ p và q được khai báo trước và biến p trỏ tới phần tử a[i] của xâu ($0 \leq i < n $)
+Các mục con dưới đây giúp chúng ta tìm hiểu về các phép toán này. Để dễ diễn đạt, mảng a[n] và hai biến con trỏ p và q được khai báo trước và biến p trỏ tới phần tử a[i] của mảng ($0 \leq i < n $)
 #### 1.1. Phép cộng 1 số nguyên vào con trỏ
-Biết rằng `j` là một số nguyên. Khi đó phép cộng `p + j` sẽ trỏ tới phần tử `a[i+j]` trong xâu a (Nếu phần tử đó tồn tại)
+Biết rằng `j` là một số nguyên. Khi đó phép cộng `p + j` sẽ trỏ tới phần tử `a[i+j]` trong mảng a (Nếu phần tử đó tồn tại)
 Chương trình ví dụ dưới đây cho ta thấy được điều đó:
 ```c
 #include <stdio.h>
@@ -50,9 +50,9 @@ Value of q = 8 //a[6]
 Value of p after addition = 60 //a[11]
 ```
 Kết quả cho thấy phép cộng `p+j` luôn trỏ tới phần tử `a[i+j]`
-Thực tế, phần comment trên không có khi chạy chương trình. Chúng chỉ giải thích thêm về việc hai biến con trỏ đang trỏ tới phần tử nào của xâu.
+Thực tế, phần comment trên không có khi chạy chương trình. Chúng chỉ giải thích thêm về việc hai biến con trỏ đang trỏ tới phần tử nào của mảng.
 #### 1.2. Phép trừ 1 số nguyên ra khỏi con trỏ
-Tương tự như trên, phép trừ `p - j` sẽ trỏ tới phần tử `[a-j]` trong xâu. 
+Tương tự như trên, phép trừ `p - j` sẽ trỏ tới phần tử `[a-j]` trong mảng. 
 Chương trình ví dụ: 
 ```c
 #include <stdio.h>
@@ -79,9 +79,9 @@ Value of q = 3 //a[2]
 Value of p after subtraction = 2 //a[1]
 ```
 Kết quả cho thấy phép trừ `p-j` luôn trỏ tới phần tử `a[i-j]`
-Thực tế, phần comment trên không có khi chạy chương trình. Chúng chỉ giải thích thêm về việc hai biến con trỏ đang trỏ tới phần tử nào của xâu.
+Thực tế, phần comment trên không có khi chạy chương trình. Chúng chỉ giải thích thêm về việc hai biến con trỏ đang trỏ tới phần tử nào của mảng.
 #### 1.3. Phép trừ hai con trỏ
-Khi biến `p` trỏ tới phần tử `a[i]` của xâu và biến q trỏ tới phần tử `a[j]` thì phép tính `p - q` luôn có giá trị là  `i - j`.
+Khi biến `p` trỏ tới phần tử `a[i]` của mảng và biến q trỏ tới phần tử `a[j]` thì phép tính `p - q` luôn có giá trị là  `i - j`.
 Chương trình ví dụ:
 ```c
 #include <stdio.h>
@@ -101,7 +101,7 @@ int main(void)
 Ở chương trình này, ta sẽ nhập từ bàn phím hai chỉ số i và j. Các phần tử có chỉ số được lựa chọn tương ứng được gán địa chỉ vào hai biến p và q. Chương trình sẽ in ra kết quả của hai phép tính `p-q` và `i-j`
 Kết quả chạy như sau:
 ![Subtraction of pointer results](day7_codes/result_subtraction_pointer.png)
-Kết quả cho ta thấy được hai phép tính trên có cùng kết quả, vì chúng đều là khoảng cách tương đối giữa hai phần tử của xâu.
+Kết quả cho ta thấy được hai phép tính trên có cùng kết quả, vì chúng đều là khoảng cách tương đối giữa hai phần tử của mảng.
 #### 1.4: Phép so sánh giữa hai con trỏ 
 Ta có thể dùng các phép toán quan hệ như sau để so sánh con trỏ:
 * `<`
@@ -110,7 +110,7 @@ Ta có thể dùng các phép toán quan hệ như sau để so sánh con trỏ:
 * `>=`
 * `==`
 * `!=`
-Kết quả của phép toán này phụ thuộc vào vị trí tương đối của hai phần tử của xâu.
+Kết quả của phép toán này phụ thuộc vào vị trí tương đối của hai phần tử của mảng.
 Chương trình ví dụ:
 ```c
 #include <stdio.h>
@@ -128,6 +128,6 @@ int main(void)
 Ở chương trình này, tương tự chương trình trên, hai chỉ số i và j vẫn được nhập bàn phím, chương trình trả về kết quả của hai phép so sánh giữa p và q.
 Kết quả chạy chương trình:
 ![Result pointer comparison](day7_codes/result_pointer_comparison.png) 
-Kết quả cho ta thấy khi $p \rightarrow a[5], q\rightarrow a[1]$ thì `p>=q` có kết quả là 1, còn khi $p \rightarrow a[7], q\rightarrow a[10]$ thì `p<=q` có kết quả là 1. Điều đó cho thấy hai con trỏ này so sánh dựa trên vị trí tương đối của hai phần tử trong xâu. Nói đơn giản, nếu i < j thì p < q và nếu i > j thì p > q.
+Kết quả cho ta thấy khi $p \rightarrow a[5], q\rightarrow a[1]$ thì `p>=q` có kết quả là 1, còn khi $p \rightarrow a[7], q\rightarrow a[10]$ thì `p<=q` có kết quả là 1. Điều đó cho thấy hai con trỏ này so sánh dựa trên vị trí tương đối của hai phần tử trong mảng. Nói đơn giản, nếu i < j thì p < q và nếu i > j thì p > q.
 #### Lưu ý
-Các phép toán trên phải được thực hiện trong phạm vi cùng một xâu. Nếu không, lỗi không xác định có thể xảy ra.
+Các phép toán trên phải được thực hiện trong phạm vi cùng một mảng. Nếu không, lỗi không xác định có thể xảy ra.

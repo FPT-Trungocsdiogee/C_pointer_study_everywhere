@@ -5,7 +5,7 @@ Dưới đây là những bài tập luyện tập cách sử dụng con trỏ l
 ```c
 void avg_sum(double a[], int n, double *avg, double *sum)
 ```
-Trong đó `a[n]` là xâu số thực gồm n phần tử, `avg, sum` là con trỏ trỏ tới lần lượt biến trung bình cộng và tổng các số trong xâu a
+Trong đó `a[n]` là mảng số thực gồm n phần tử, `avg, sum` là con trỏ trỏ tới lần lượt biến trung bình cộng và tổng các số trong mảng a
 Chương trình kiểm tra kết quả trả về trong `main(void)`:
 ```c
 int main(void)
@@ -44,7 +44,7 @@ int main(void)
 ```c
 void find_two_largest(int a[], int n, int *largest, int *second_largest)
 ``` 
-Trong đó xâu `a[n]` là xâu gồm n số nguyên bất kì, `largest, second_largest` chỉ hai con trỏ trỏ tới biến lưu số lớn nhất và số lớn thứ hai của xâu `a[n]`
+Trong đó mảng `a[n]` là mảng gồm n số nguyên bất kì, `largest, second_largest` chỉ hai con trỏ trỏ tới biến lưu số lớn nhất và số lớn thứ hai của mảng `a[n]`
 Chương trình kiểm tra kết quả trả về trong `main(void)`:
 ```c
 int main(void)
@@ -91,7 +91,7 @@ Bài tập sau luyện cách sử dụng con trỏ như giá trị trả về (R
 ```c
 int *find_first_even(int a[], int n)
 ```
-Hàm này nhận xâu a gồm n số nguyên làm tham số, trả về địa chỉ của số chẵn đầu tiên trong xâu
+Hàm này nhận mảng a gồm n số nguyên làm tham số, trả về địa chỉ của số chẵn đầu tiên trong mảng
 Chương trình kiểm tra kết quả trả về trong `main(void)`:
 ```c
 int main(void)

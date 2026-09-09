@@ -1,11 +1,11 @@
 # Pointer notes - day 9
 ### 1. Kết hợp hai phép * và ++
-Phép toán lấy giá trị `*` và phép `++` thường được kết hợp với nhau khi viết các câu lệnh xử lí xâu. 
-Ví dụ khi gán một giá trị cho một phần tử của xâu, bình thường chúng ta có thể viết như sau:
+Phép toán lấy giá trị `*` và phép `++` thường được kết hợp với nhau khi viết các câu lệnh xử lí mảng. 
+Ví dụ khi gán một giá trị cho một phần tử của mảng, bình thường chúng ta có thể viết như sau:
 ```
 a[i++] = j
 ```
-Nếu biến con trỏ `p` đang trỏ tới phần tử `a[i]` của xâu, ta có thể viết câu trên như sau:
+Nếu biến con trỏ `p` đang trỏ tới phần tử `a[i]` của mảng, ta có thể viết câu trên như sau:
 ```
 *p++ = j
 ```

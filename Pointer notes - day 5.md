@@ -37,11 +37,11 @@ int *f(void)
 }
 ```
 Ở đây, biến i sẽ không tồn tại khi f trả kết quả, nên con trỏ trỏ vào nó sẽ không tồn tại.
-# 2. Con trỏ trả về phần tử của xâu.
-Con trỏ hàm có thể trả về không chỉ biến thông thường, mà nó còn có thể trả về phần tử của xâu. 
-Nếu `a` là một xâu, thì `&a[i]` là con trỏ trỏ tới thành phần i của xâu a.
-Khi hàm có tham số là một xâu, ta có thể viết hàm để trả về con trỏ trỏ tới một phần tử của xâu.
-Ví dụ như chương trình [sau](day5_codes/demo_return_function_array.c) sẽ đọc xâu `arr[n]` và chỉ số i được yêu cầu, sử dụng hàm trả về phần tử có chỉ số i:
+# 2. Con trỏ trả về phần tử của mảng.
+Con trỏ hàm có thể trả về không chỉ biến thông thường, mà nó còn có thể trả về phần tử của mảng. 
+Nếu `a` là một mảng, thì `&a[i]` là con trỏ trỏ tới thành phần i của mảng a.
+Khi hàm có tham số là một mảng, ta có thể viết hàm để trả về con trỏ trỏ tới một phần tử của mảng.
+Ví dụ như chương trình [sau](day5_codes/demo_return_function_array.c) sẽ đọc mảng `arr[n]` và chỉ số i được yêu cầu, sử dụng hàm trả về phần tử có chỉ số i:
 ```c{.line-numbers}
 #include <stdio.h>
 int *arraySelectedReturn(int n, int arr[], int *index)
